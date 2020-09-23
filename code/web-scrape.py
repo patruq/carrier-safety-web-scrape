@@ -20,10 +20,10 @@ for dot_number in df["DOT_NUMBER"]:
 
 for carrier in url_list[:1]:
     for url in carrier.values():
-        sleep(60.0)
+        #sleep(60.0)
         res = requests.get(url)
 soup = BeautifulSoup(res.content, "lxml")
-#print(url_list[0].values())
+print(url_list[:1])
 
 # Get the cargo of each company
 """
@@ -38,7 +38,7 @@ HTML tag order of Cargo Carried:
     8) Then <li class> or <li class="checked">
     9) With text X for check
 """
-ul= soup.find("ul", {"class": "cargo"})
+ul = soup.find("ul", {"class": "cargo"})
 
 cargoes = []
 
@@ -53,4 +53,26 @@ print(cargo_df.head())
 
 # Get vehicle types
 """
+HTML tag order of Vehicle Types:
+    1) <body>
+    2) <div id="page-wrapper">
+    3) <div id="page" class="container">
+    4) <article id="regInfo" class="carrier-data eventPnl">
+    5) <div class="modelBody">
+    6) <div id ="regBox">
+    7) <table>
+    8) <tbody>
+    9) <tr>
+    10) <th class="Straight Trucks"...>
+    11) <td> contains the counts
 """
+tbody = soup.find_all("tbody")
+counter = 0
+
+vehicles_list = []
+for tr in tbody.find_all("tr"):
+    counter += tr.text
+    vehicles = {
+        "num_vehicles": counter
+    }
+print(vehicles_list)
