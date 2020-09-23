@@ -10,3 +10,22 @@ the "Motor Carrier Census Information" file.
 ### Bonus:
 1) Find variations, `Nan` and missing values.
 2) Develop a light scrape tool.
+
+--- 
+# Methodology
+- ***Raw Data***
+    - Downloaded raw `.txt` from site.
+    - Extracted `DOT_NUMBER` col
+- ***Webscraper***
+    - Organized the `DOT_NUMBER` in a list of dictionaries of the dot_number and updated `url` with dot_number inserted.
+    - The `robots.txt` file specified the following conditions for the webscrape:
+            
+            User-agent: Speedy
+            Crawl-Delay: 60
+            User-agent: msnbot 
+            Crawl-delay: 60
+            User-agent: Slurp
+            Crawl-delay: 6
+            User-agent: *
+            Crawl-delay: 60
+    
