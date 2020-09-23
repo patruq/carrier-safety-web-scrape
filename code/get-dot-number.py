@@ -22,7 +22,7 @@
      "end_time": "2020-09-23T17:03:06.948880Z",
      "start_time": "2020-09-23T17:02:46.472641Z"
     },
-    "scrolled": true
+    "collapsed": true
    },
    "outputs": [
     {
@@ -698,11 +698,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 25,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2020-09-23T17:06:59.510481Z",
-     "start_time": "2020-09-23T17:06:56.987646Z"
+     "end_time": "2020-09-23T17:23:06.449750Z",
+     "start_time": "2020-09-23T17:23:03.933826Z"
     }
    },
    "outputs": [
@@ -739,7 +739,7 @@
        "dtype: int64"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -749,6 +749,64 @@
     "\n",
     "df.isna().sum()"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-23T17:23:32.762300Z",
+     "start_time": "2020-09-23T17:23:31.874636Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1717663"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[\"DOT_NUMBER\"].nunique()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-23T17:26:26.523793Z",
+     "start_time": "2020-09-23T17:26:25.811504Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array(['1', '10000', '1000000', ..., '999993', '999994', '999999'],\n",
+       "      dtype=object)"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[\"DOT_NUMBER\"].unique()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
