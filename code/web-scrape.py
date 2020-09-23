@@ -17,14 +17,15 @@ for dot_number in df["DOT_NUMBER"]:
 
 # Check the request response
     # This can be used to check any 400 or 500 issues
-for carrier in url_list[:2]:
+
+for carrier in url_list[:1]:
     for url in carrier.values():
         sleep(60.0)
         res = requests.get(url)
-        print(res)
-
+soup = BeautifulSoup(res.content, "lxml")
 #print(url_list[0].values())
 
+# Get the cargo of each company
 """
 HTML tag order of Cargo Carried:
     1) <body>
@@ -37,6 +38,19 @@ HTML tag order of Cargo Carried:
     8) Then <li class> or <li class="checked">
     9) With text X for check
 """
+ul= soup.find("ul", {"class": "cargo"})
 
+cargoes = []
 
+for li in ul.find_all("li"):
+    cargo = {
+        "cargo": li.text
+    }
+    cargoes.append(cargo)
 
+cargo_df = pd.DataFrame(cargoes)
+print(cargo_df.head())
+
+# Get vehicle types
+"""
+"""
