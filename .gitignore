@@ -1,0 +1,5 @@
+# Ignore .txt data files
+*.txt
+
+# Ignore data dir
+assets/data/*
